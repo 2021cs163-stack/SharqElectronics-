@@ -1,0 +1,135 @@
+/** @import must precede all other statements */
+/* Google Fonts loaded via preconnect in index.html for faster first paint */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 10%;
+    --foreground: 0 0% 97%;
+
+    --card: 221 33% 14%;
+    --card-foreground: 0 0% 97%;
+
+    --popover: 221 33% 14%;
+    --popover-foreground: 0 0% 97%;
+
+    --primary: 21 80% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 211 34% 18%;
+    --secondary-foreground: 0 0% 97%;
+
+    --muted: 211 34% 18%;
+    --muted-foreground: 210 14% 59%;
+
+    --accent: 211 34% 18%;
+    --accent-foreground: 0 0% 97%;
+
+    --destructive: 0 63% 51%;
+    --destructive-foreground: 0 0% 97%;
+
+    --success: 123 46% 34%;
+    --warning: 45 96% 48%;
+
+    --border: 211 34% 18%;
+    --input: 211 34% 18%;
+    --ring: 21 80% 51%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 39% 11%;
+    --sidebar-foreground: 210 14% 59%;
+    --sidebar-primary: 21 80% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 211 34% 18%;
+    --sidebar-accent-foreground: 0 0% 97%;
+    --sidebar-border: 211 34% 18%;
+    --sidebar-ring: 21 80% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border-border/50;
+  }
+
+  .industrial-shadow {
+    box-shadow: 0 4px 0 0 hsl(var(--border)), 0 10px 15px -3px rgb(0 0 0 / 0.5);
+  }
+
+  .btn-hover-effect {
+    @apply transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] active:brightness-90;
+  }
+
+  .status-pill {
+    @apply px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-current bg-current/10;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+/* ── Print preview page — override dark theme ─────────────────────────────── */
+body.print-page {
+  background: white !important;
+  color: black !important;
+}
+
+.label-stencil {
+  @apply text-[10px] font-black uppercase tracking-widest text-muted-foreground;
+}
+
+/* ── Themes ───────────────────────────────────────────────────────────── */
+[data-theme="dark"]  { --primary: 217 91% 60%; }
+[data-theme="blue"]  { --primary: 200 98% 50%; --background: 220 25% 8%; --card: 220 20% 12%; }
+[data-theme="green"] { --primary: 142 76% 45%; --background: 150 20% 6%; --card: 150 15% 10%; }
+[data-theme="rose"]  { --primary: 347 85% 60%; --background: 0 15% 8%;   --card: 0 10% 12%; }
+[data-theme="light"] {
+  --background: 0 0% 97%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --border: 214 32% 85%;
+  --input: 214 32% 91%;
+  --muted: 210 40% 93%;
+  --muted-foreground: 215 25% 40%;
+  --accent: 210 40% 93%;
+  --accent-foreground: 222 47% 11%;
+  --primary: 21 80% 51%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 93%;
+  --secondary-foreground: 222 47% 11%;
+  --destructive: 0 63% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 21 80% 51%;
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 222 47% 11%;
+  --sidebar-primary: 21 80% 51%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 210 40% 93%;
+  --sidebar-accent-foreground: 222 47% 11%;
+  --sidebar-border: 214 32% 85%;
+  --sidebar-ring: 21 80% 51%;
+}

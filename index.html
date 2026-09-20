@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="theme-color" content="#e8621a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Sharq Electronics</title>
+
+    <!-- Preconnect for fast font load — eliminates render-blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- font-display:swap so text renders immediately in system font, swaps when Inter loads -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Inline critical CSS so the dark background shows before JS loads -->
+    <style>
+      html, body, #root {
+        margin: 0; padding: 0;
+        background: #0f1623;
+        color: #f7f9fc;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        min-height: 100dvh;
+      }
+      /* Prevent flash of unstyled content */
+      #root:empty::before {
+        content: '';
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: #0f1623;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/client/main.tsx"></script>
+  </body>
+</html>
